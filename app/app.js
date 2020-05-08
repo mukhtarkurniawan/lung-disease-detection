@@ -3,6 +3,7 @@ const {
 } = require('./modules.js')
 
 const app = express()
+app.use(express.json());
 
 const { 
     homeRouter,
