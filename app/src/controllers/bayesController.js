@@ -6,8 +6,8 @@ const Math = include.math
 
 async function bayes(req, res) {
     try {
-        let data = req.body
-
+        let data = req.query
+        console.log(data);
         let evidence = data.evidence
         let lung_cancer = {
             name: 'lung_cancer',
