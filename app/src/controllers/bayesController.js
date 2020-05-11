@@ -72,7 +72,7 @@ async function bayes(req, res) {
         
         for (let i = 0; i < evidence.length; i++) {
             numerator = numerator_generator(diseases, evidence, i).toFixed(4)
-            probability = numerator / denominator
+            probability = (numerator / denominator).toFixed(4)
 
             final_probability.push({
                 name: diseases[i].name,
