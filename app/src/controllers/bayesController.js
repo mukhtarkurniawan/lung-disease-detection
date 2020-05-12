@@ -39,10 +39,11 @@ async function bayes(req, res) {
         let pneumonia = {
             name: 'pneumonia',
             hypothesis_probability: data.pneumonia_probability,
-            cough: 1,
-            fever: 1,
-            shaking_chills: 1,
-            shortness_of_breath: 1
+            cough: 0.85,
+            fever: 0.73,
+            shaking_chills: 0.63,
+            shortness_of_breath: 0.70,
+            fatigue: 0.9
         }
 
         let diseases = [lung_cancer, tuberculosis, pneumonia]
