@@ -1,13 +1,13 @@
 // ============== Include ===========
 const include = require('../../modules');
 const Math = include.math
+const _ = include._
 
 // ================= Constant =============
 
 async function bayes(req, res) {
     try {
         let data = req.query
-        console.log(data);
         let evidence = data.evidence
         let lung_cancer = {
             name: 'lung_cancer',
@@ -70,9 +70,11 @@ async function bayes(req, res) {
         let probability = 0
         let numerator = 0
         let denominator = denominator_generator(diseases, evidence)
+        console.log(denominator);
         
-        for (let i = 0; i < evidence.length; i++) {
+        for (let i = 0; i < diseases.length; i++) {
             numerator = numerator_generator(diseases, evidence, i).toFixed(4)
+            console.log(numerator);
             probability = (numerator / denominator).toFixed(4)
 
             final_probability.push({
@@ -98,7 +100,7 @@ async function bayes(req, res) {
 
 function numerator_generator(diseases, evidence, i) {
     let temp = 1
-    for (let j = 0; j < evidence.length; j++) {
+    for (let j = 0; j < evidence.length; j++) { 
         temp = temp * diseases[i][evidence[j]] || 0;
     }
 
@@ -109,7 +111,7 @@ function numerator_generator(diseases, evidence, i) {
 function denominator_generator(diseases, evidence) {
     let temp = 1
     let denominator = 0
-    for (let i = 0; i < evidence.length; i++) {
+    for (let i = 0; i < diseases.length; i++) {
         for (let j = 0; j < evidence.length; j++) {
             temp = temp * diseases[i][evidence[j]] || 0;
 

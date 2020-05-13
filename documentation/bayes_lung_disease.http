@@ -1,6 +1,6 @@
 @baseURI = http://localhost:3000
 
-GET  {{baseURI}}/bayes?lung_cancer_probability=0.40&tuberculosis_probability=0.35&pneumonia_probability=0.25&evidence[]=coughing_blood&evidence[]=fatigue&evidence[]=weight_loss HTTP/1.1
+GET  {{baseURI}}/bayes?lung_cancer_probability=0.40&tuberculosis_probability=0.35&pneumonia_probability=0.25&evidence[]=coughing_blood&evidence[]=fatigue&evidence[]=weight_loss&evidence[]=fever&evidence[]=chest_pain HTTP/1.1
 # Content-Type: application/json
 
 # {
